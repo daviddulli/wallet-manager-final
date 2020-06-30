@@ -1,22 +1,23 @@
 package org.fasttrackit.walletmanager.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
 
 @Entity
-public class Wallet {
+public class Transaction {
 
     @Id
-    @GeneratedValue
     private long id;
     @NotNull
     private String name;
     @NotNull
-    private String currency;
+    private Date date;
     @NotNull
-    private double budget;
+    private double value;
+    @NotNull
+    private String type;
 
     public long getId() {
         return id;
@@ -34,29 +35,38 @@ public class Wallet {
         this.name = name;
     }
 
-    public String getCurrency() {
-        return currency;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public double getBudget() {
-        return budget;
+    public double getValue() {
+        return value;
     }
 
-    public void setBudget(double budget) {
-        this.budget = budget;
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Wallet{" +
+        return "Transaction{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", currency='" + currency + '\'' +
-                ", budget=" + budget +
+                ", date=" + date +
+                ", value=" + value +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
