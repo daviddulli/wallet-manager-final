@@ -1,31 +1,13 @@
-package org.fasttrackit.walletmanager.domain;
+package org.fasttrackit.walletmanager.transfer;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
-@Entity
-public class Transaction {
+public class UpdateTransactionRequest {
 
-    @Id
-    private long id;
-    @NotNull
     private String description;
-    @NotNull
-    private Date date;
-    @NotNull
     private double value;
-    @NotNull
     private String type;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    private Date date;
 
     public String getDescription() {
         return description;
@@ -33,14 +15,6 @@ public class Transaction {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public double getValue() {
@@ -59,14 +33,22 @@ public class Transaction {
         this.type = type;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-        return "Transaction{" +
-                "id=" + id +
-                ", name='" + description + '\'' +
-                ", date=" + date +
+        return "CreateTransaction{" +
+                "description='" + description + '\'' +
                 ", value=" + value +
                 ", type='" + type + '\'' +
+                ", date=" + date +
                 '}';
     }
+
 }
